@@ -47,4 +47,3 @@ This allows:
 - Dynamic Memory Allocation
 - Modular Programming
 
-## Project Structure
