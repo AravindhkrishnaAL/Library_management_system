@@ -1,42 +1,28 @@
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<time.h>
-struct st
+#include"header.h"
+void add_nbook(struct st **ptr)
 {
-	int bid;
-	char bname[100];
-	char aname[100];
-	int qty;
-	struct st *next;
-};
-struct isu
-{
-	int isid;
-	int bid;
-	int uid;
-	char uname[15];
-	char isu_date[15];
-	char due_date[15];
-	char ret_date[15];
-	int fine;
-	struct isu *next;
-};
+	struct st *temp=(struct st *)malloc(sizeof(struct st));
+	printf("Enter book details:\n");
 
-extern int id,sid,isid,flag;
-extern int search_id;
-void add_nbook(struct st **);
-void view_all(struct st *);
-void load(struct st **);
-void terminate(struct st *,struct isu*);
-void save(struct st *);
-void display(struct st *);
-void bremove(struct st **);
-void del_id(struct st **);
-void update(struct st *);
-void issue(struct st *,struct isu **);
-void issue_list(struct isu *);
-void issue_save(struct isu *);
-void issue_load(struct isu **);
-void return_book(struct st *,struct isu **);
+	printf("\n\tenter the book name : ");
+	scanf(" %[^\n]",temp->bname);
+	printf("\tenter the name of author : ");
+	scanf(" %[^\n]",temp->aname);
+	printf("\n\tenter the quantity of the book : ");
+	scanf("%d",&temp->qty);
+	temp->bid=++id;
+	temp->next=0;
+	if(*ptr==0)
+	{
+	    *ptr=temp;
+	}
+	else
+	{
+	    struct st *last=*ptr;
+	    while(last->next!=0)
+		    last=last->next;
+	    last->next=temp;
+
+	}
+
+}
