@@ -4,7 +4,7 @@ void load(struct st **ptr)
 	struct st temp;
 	FILE *fs=fopen("nbload.txt","r+");
 	if(fs==NULL){
-		printf("File not found\n");
+		printf("No saved file found\n");
 		return;
 	}
 
